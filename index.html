@@ -607,7 +607,7 @@
 
   <main id="top">
     <section class="hero" aria-label="3761 Glenalbyn hero video">
-      <video autoplay muted loop playsinline poster="assets/photos/featured-01.jpg">
+      <video id="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/photos/featured-01.jpg">
         <source src="assets/video/glenalbyn-hero.mp4" type="video/mp4">
       </video>
       <div class="hero-copy">
@@ -775,6 +775,25 @@
     }, { threshold: 0.14 });
 
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    const heroVideo = document.getElementById("hero-video");
+    const playHeroVideo = () => {
+      if (!heroVideo) return;
+      heroVideo.muted = true;
+      heroVideo.defaultMuted = true;
+      heroVideo.playsInline = true;
+      const playAttempt = heroVideo.play();
+      if (playAttempt && typeof playAttempt.catch === "function") {
+        playAttempt.catch(() => {});
+      }
+    };
+
+    playHeroVideo();
+    heroVideo?.addEventListener("loadedmetadata", playHeroVideo, { once: true });
+    heroVideo?.addEventListener("canplay", playHeroVideo, { once: true });
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) playHeroVideo();
+    });
 
     document.getElementById("contact-form").addEventListener("submit", (event) => {
       event.preventDefault();
