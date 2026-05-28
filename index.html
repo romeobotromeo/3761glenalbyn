@@ -1,337 +1,797 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3761 Glenalbyn Dr | Mount Washington | $1,850,000</title>
-    <meta name="description" content="Fully reimagined Mount Washington hillside residence with 14-foot ceilings, wall of windows, and expansive city views. 3 bed, 3 bath. Listed by Joshua Gibson.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        :root {
-            --black: #0a0a0a;
-            --white: #fafafa;
-            --gold: #c9a962;
-            --gray: #888;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--black);
-            color: var(--white);
-            line-height: 1.6;
-        }
-        
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 2rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%),
-                        url('hero.jpg') center/cover no-repeat;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-        }
-        
-        .price {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 5rem);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .address {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            font-weight: 300;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            color: var(--gold);
-        }
-        
-        .specs {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-        
-        .spec {
-            font-size: 1rem;
-            color: var(--gray);
-        }
-        
-        .spec strong {
-            color: var(--white);
-            font-weight: 500;
-        }
-        
-        /* Features */
-        .features {
-            padding: 4rem 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .features h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--gold);
-        }
-        
-        .feature-list {
-            list-style: none;
-        }
-        
-        .feature-list li {
-            padding: 1rem 0;
-            border-bottom: 1px solid #222;
-            font-size: 1.1rem;
-            font-weight: 300;
-        }
-        
-        .feature-list li::before {
-            content: "—";
-            margin-right: 1rem;
-            color: var(--gold);
-        }
-        
-        /* Gallery */
-        .gallery {
-            padding: 4rem 0;
-            background: #0a0a0a;
-        }
-        
-        .gallery h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            padding: 0 2rem;
-            color: var(--gold);
-        }
-        
-        .gallery-scroll {
-            display: flex;
-            gap: 1rem;
-            overflow-x: auto;
-            padding: 0 2rem 2rem;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-        
-        .gallery-scroll::-webkit-scrollbar {
-            height: 4px;
-        }
-        
-        .gallery-scroll::-webkit-scrollbar-track {
-            background: #222;
-        }
-        
-        .gallery-scroll::-webkit-scrollbar-thumb {
-            background: var(--gold);
-        }
-        
-        .gallery-item {
-            flex: 0 0 auto;
-            width: 80vw;
-            max-width: 500px;
-            scroll-snap-align: center;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        
-        /* Floorplan */
-        .floorplan {
-            padding: 4rem 2rem;
-            text-align: center;
-            background: #111;
-        }
-        
-        .floorplan h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--gold);
-        }
-        
-        .floorplan img {
-            max-width: 100%;
-            max-height: 600px;
-            border-radius: 4px;
-        }
-        
-        /* Details Grid */
-        .details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            padding: 4rem 2rem;
-            background: #111;
-        }
-        
-        .detail-card {
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .detail-value {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: var(--gold);
-        }
-        
-        .detail-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--gray);
-            margin-top: 0.5rem;
-        }
-        
-        /* CTA */
-        .cta {
-            padding: 4rem 2rem;
-            text-align: center;
-            background: var(--black);
-        }
-        
-        .cta h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .agent-name {
-            font-size: 1.2rem;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-        }
-        
-        .agent-license {
-            font-size: 0.9rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 3rem;
-            font-size: 1rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--black);
-            background: var(--gold);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .cta-button:hover {
-            background: var(--white);
-        }
-        
-        /* Footer */
-        footer {
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--gray);
-            border-top: 1px solid #222;
-        }
-        
-        footer a {
-            color: var(--gold);
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3761 Glenalbyn Dr | Mount Washington | $1,695,000</title>
+  <meta name="description" content="Fully reimagined Mount Washington hillside residence with 14-foot ceilings, a wall of windows, expansive city views, and open house showings Saturday and Sunday from 1-4PM.">
+  <meta property="og:title" content="3761 Glenalbyn Dr | Mount Washington">
+  <meta property="og:description" content="3 bed, 3 bath hillside residence in Mount Washington. Offered for $1,695,000.">
+  <meta property="og:image" content="https://3761glenalbyn.textmarco.com/assets/photos/featured-01.jpg">
+  <meta property="og:url" content="https://3761glenalbyn.textmarco.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --paper: #f5efe4;
+      --ink: #11100d;
+      --muted: #5e594f;
+      --line: rgba(17, 16, 13, 0.18);
+      --orange: #f25718;
+      --sage: #6b7357;
+      --blue: #2f5d6b;
+      --white: #fffaf1;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 30;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.85rem clamp(1rem, 3vw, 2rem);
+      color: var(--white);
+      mix-blend-mode: difference;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      width: 100%;
+      overflow: hidden;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .hero video {
+      width: 100%;
+      height: 100svh;
+      object-fit: cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.12) 54%, rgba(0,0,0,0.28));
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      position: absolute;
+      left: clamp(1rem, 4vw, 3.5rem);
+      right: clamp(1rem, 4vw, 3.5rem);
+      bottom: clamp(1.25rem, 5vw, 4rem);
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1.5rem;
+      align-items: end;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.65rem;
+      color: var(--orange);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 12ch;
+      font-family: "Archivo Black", Impact, sans-serif;
+      font-size: clamp(4.2rem, 16vw, 12rem);
+      line-height: 0.78;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .hero-meta {
+      width: min(100%, 24rem);
+      border-top: 1px solid rgba(255,255,255,0.55);
+      padding-top: 1rem;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 600;
+    }
+
+    .hero-meta p {
+      margin: 0.35rem 0;
+    }
+
+    .price {
+      color: var(--orange);
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: 0.95;
+      font-family: "Archivo Black", Impact, sans-serif;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.1rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.9rem;
+      padding: 0.8rem 1rem;
+      border: 1px solid currentColor;
+      border-radius: 0;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .button.primary {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--ink);
+    }
+
+    .hero .button:hover,
+    .hero .button:focus-visible {
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .section {
+      padding: clamp(3rem, 8vw, 7rem) clamp(1rem, 4vw, 4rem);
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(18rem, 0.7fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      margin: 0 0 1rem;
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    h2 {
+      margin: 0;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: clamp(2.4rem, 7vw, 6.5rem);
+      font-weight: 600;
+      line-height: 0.92;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 1.4rem 0 0;
+      max-width: 54rem;
+      font-size: clamp(1.15rem, 2vw, 1.65rem);
+      color: var(--muted);
+    }
+
+    .facts {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .fact {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.92rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .fact span:last-child {
+      color: var(--orange);
+      text-align: right;
+    }
+
+    .open-house {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(18rem, 1.05fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+      background: var(--orange);
+      color: var(--ink);
+    }
+
+    .open-house h2 {
+      font-family: "Archivo Black", Impact, sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(4rem, 12vw, 10rem);
+      line-height: 0.78;
+    }
+
+    .open-house-copy {
+      max-width: 40rem;
+    }
+
+    .open-house-copy p {
+      font-size: clamp(1.15rem, 2.3vw, 1.8rem);
+      font-weight: 700;
+    }
+
+    .flyer {
+      width: min(100%, 36rem);
+      margin: 0 auto;
+      border: 1px solid rgba(17,16,13,0.22);
+    }
+
+    .gallery-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      align-items: end;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .gallery-note {
+      max-width: 24rem;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .artifact-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: clamp(0.6rem, 1.4vw, 1rem);
+      margin-top: clamp(1.5rem, 4vw, 3rem);
+      align-items: start;
+    }
+
+    .artifact {
+      min-height: 14rem;
+      overflow: hidden;
+      background: #ddd;
+      border: 1px solid rgba(17,16,13,0.08);
+    }
+
+    .artifact img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 700ms ease;
+    }
+
+    .artifact:hover img {
+      transform: scale(1.035);
+    }
+
+    .wide { grid-column: span 7; aspect-ratio: 1.45; }
+    .tall { grid-column: span 5; aspect-ratio: 0.78; }
+    .square { grid-column: span 4; aspect-ratio: 1; }
+    .mid { grid-column: span 6; aspect-ratio: 1.12; }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+      gap: clamp(2rem, 6vw, 6rem);
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .highlights .kicker {
+      color: var(--orange);
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .feature-list li {
+      padding: 1.05rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+      font-size: clamp(1rem, 1.7vw, 1.3rem);
+      color: rgba(255,255,255,0.82);
+    }
+
+    .floorplan {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 1.2fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+      background: var(--sage);
+      color: var(--white);
+    }
+
+    .floorplan img {
+      width: min(100%, 45rem);
+      background: var(--white);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .bts {
+      background: #ede9df;
+    }
+
+    .bts-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .bts-grid img {
+      width: 100%;
+      aspect-ratio: 0.8;
+      object-fit: cover;
+      border: 1px solid var(--line);
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1.1fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: start;
+      background: var(--white);
+    }
+
+    form {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    label {
+      display: grid;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
+      color: var(--ink);
+      padding: 0.95rem;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 9rem;
+      resize: vertical;
+    }
+
+    .agent {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .agent strong {
+      color: var(--ink);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 2rem clamp(1rem, 4vw, 4rem);
+      background: var(--ink);
+      color: rgba(255,255,255,0.72);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .sticky-cta {
+      position: fixed;
+      left: 0.75rem;
+      right: 0.75rem;
+      bottom: 0.75rem;
+      z-index: 40;
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .sticky-cta .button {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 550ms ease, transform 550ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero-copy,
+      .intro,
+      .open-house,
+      .highlights,
+      .floorplan,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        align-items: end;
+      }
+
+      .hero-meta {
+        width: 100%;
+      }
+
+      .gallery-head {
+        display: block;
+      }
+
+      .gallery-note {
+        margin-top: 1rem;
+      }
+
+      .artifact-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      .wide,
+      .tall,
+      .square,
+      .mid {
+        grid-column: span 6;
+      }
+
+      .artifact {
+        min-height: 0;
+      }
+
+      .wide,
+      .mid {
+        aspect-ratio: 1.15;
+      }
+
+      .tall,
+      .square {
+        aspect-ratio: 0.86;
+      }
+
+      .bts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        position: absolute;
+        mix-blend-mode: normal;
+      }
+
+      .navlinks {
+        display: none;
+      }
+
+      h1 {
+        font-size: clamp(4rem, 22vw, 7rem);
+      }
+
+      .hero video {
+        height: 100svh;
+      }
+
+      .hero-copy {
+        left: 1rem;
+        right: 1rem;
+        bottom: 5.5rem;
+      }
+
+      .actions {
+        display: none;
+      }
+
+      .section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .sticky-cta {
+        display: grid;
+      }
+
+      footer {
+        display: block;
+        padding-bottom: 5.5rem;
+      }
+
+      footer span {
+        display: block;
+        margin-bottom: 0.55rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
-    <section class="hero">
-        <div class="hero-content">
-            <div class="price">$1,850,000</div>
-            <div class="address">3761 Glenalbyn Dr, Los Angeles 90065</div>
-            <div class="specs">
-                <div class="spec"><strong>3</strong> Beds</div>
-                <div class="spec"><strong>3</strong> Baths</div>
-                <div class="spec"><strong>7,746</strong> Sq Ft Lot</div>
-                <div class="spec"><strong>$771</strong> / Sq Ft</div>
-            </div>
+  <header class="topbar" aria-label="Site navigation">
+    <a href="#top">3761 Glenalbyn Dr</a>
+    <nav class="navlinks">
+      <a href="#photos">Photos</a>
+      <a href="#open">Open House</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="3761 Glenalbyn hero video">
+      <video autoplay muted loop playsinline poster="assets/photos/featured-01.jpg">
+        <source src="assets/video/glenalbyn-hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-copy">
+        <div>
+          <p class="eyebrow">Mount Washington hillside residence</p>
+          <h1>3761 Glenalbyn</h1>
         </div>
-    </section>
-    
-    <section class="features">
-        <h2>Property Highlights</h2>
-        <ul class="feature-list">
-            <li>Fully reimagined Mount Washington hillside residence</li>
-            <li>14-foot ceilings and floor-to-ceiling wall of windows</li>
-            <li>Expansive city views from foyer to living area</li>
-            <li>Private hillside setting with serene surroundings</li>
-            <li>Kitchen with leathered marble counters and mirrored island</li>
-            <li>Built-in dining bench and top-of-the-line appliances</li>
-            <li>Primary suite with terrazzo spa en suite and walk-in closet</li>
-            <li>Two additional bedrooms with jacuzzi deck access</li>
-            <li>2-car garage</li>
-        </ul>
-    </section>
-    
-    <section class="gallery">
-        <h2>Photo Gallery</h2>
-        <div class="gallery-scroll">
-            <div class="gallery-item"><img src="photo1.jpg" alt="Exterior twilight view"></div>
-            <div class="gallery-item"><img src="photo2.jpg" alt="Designer bathroom"></div>
-            <div class="gallery-item"><img src="photo3.jpg" alt="Bedroom workspace"></div>
-            <div class="gallery-item"><img src="photo4.jpg" alt="Primary bedroom"></div>
-            <div class="gallery-item"><img src="photo5.jpg" alt="Spa bathroom"></div>
+        <div class="hero-meta">
+          <p class="price">$1,695,000</p>
+          <p>3 bed / 3 bath / approx. 2,400 SF</p>
+          <p>Open Saturday + Sunday, 1-4PM</p>
+          <div class="actions">
+            <a class="button primary" href="#contact">Learn More</a>
+            <a class="button" href="https://www.redfin.com/CA/Los-Angeles/3761-Glenalbyn-Dr-90065/home/7070306" target="_blank" rel="noopener">Redfin</a>
+          </div>
         </div>
+      </div>
     </section>
-    
-    <section class="floorplan">
-        <h2>Floor Plan</h2>
-        <img src="floorplan.jpg" alt="3761 Glenalbyn Floor Plan">
+
+    <section class="section intro reveal">
+      <div>
+        <p class="kicker">Los Angeles, CA 90065</p>
+        <h2>Reimagined above the city.</h2>
+        <p class="lead">Fully reimagined Mount Washington hillside residence with 14-foot ceilings, a floor-to-ceiling wall of windows, and expansive city views from the foyer to the living area.</p>
+      </div>
+      <div class="facts" aria-label="Property facts">
+        <div class="fact"><span>Price</span><span>$1.695M</span></div>
+        <div class="fact"><span>Beds</span><span>3</span></div>
+        <div class="fact"><span>Baths</span><span>3</span></div>
+        <div class="fact"><span>Living</span><span>2,400 SF</span></div>
+        <div class="fact"><span>Lot</span><span>7,700 SF</span></div>
+        <div class="fact"><span>Garage</span><span>2 Car</span></div>
+      </div>
     </section>
-    
-    <section class="details">
-        <div class="detail-card">
-            <div class="detail-value">1991</div>
-            <div class="detail-label">Year Built</div>
+
+    <section class="section open-house reveal" id="open">
+      <div class="open-house-copy">
+        <p class="kicker">Open House</p>
+        <h2>Sat + Sun</h2>
+        <p>Walk the house this weekend from 1-4PM. The photos are strong, but the volume, light, and city views make more sense in person.</p>
+        <div class="actions">
+          <a class="button" href="sms:+13102951136&body=Hi%20Joshua%2C%20I%27m%20interested%20in%203761%20Glenalbyn.">Text Joshua</a>
+          <a class="button" href="tel:+13102951136">Call</a>
         </div>
-        <div class="detail-card">
-            <div class="detail-value">3/3</div>
-            <div class="detail-label">Bed / Bath</div>
-        </div>
-        <div class="detail-card">
-            <div class="detail-value">7,746</div>
-            <div class="detail-label">Lot Sq Ft</div>
-        </div>
-        <div class="detail-card">
-            <div class="detail-value">2 Car</div>
-            <div class="detail-label">Garage</div>
-        </div>
+      </div>
+      <img class="flyer" src="assets/flyers/open-house.png" alt="Open house flyer for 3761 Glenalbyn Dr, Saturday and Sunday 1-4PM">
     </section>
-    
-    <section class="cta">
-        <h2>Schedule a Private Showing</h2>
-        <div class="agent-name">Joshua Gibson</div>
-        <div class="agent-license">DRE #02204427 • West Shores Realty, Inc.</div>
-        <a href="tel:+13102951136" class="cta-button">Call Now</a>
+
+    <section class="section" id="photos">
+      <div class="gallery-head reveal">
+        <div>
+          <p class="kicker">Featured Photos</p>
+          <h2>Property first.</h2>
+        </div>
+        <p class="gallery-note">Featured listing images are placed high on the page for quick mobile scanning, with a more editorial rhythm below.</p>
+      </div>
+      <div class="artifact-grid">
+        <figure class="artifact wide reveal"><img src="assets/photos/featured-01.jpg" alt="3761 Glenalbyn featured property photo" loading="lazy"></figure>
+        <figure class="artifact tall reveal"><img src="assets/photos/featured-08.jpg" alt="3761 Glenalbyn vertical featured photo" loading="lazy"></figure>
+        <figure class="artifact square reveal"><img src="assets/photos/featured-04.jpg" alt="3761 Glenalbyn featured detail" loading="lazy"></figure>
+        <figure class="artifact mid reveal"><img src="assets/photos/featured-02.jpg" alt="3761 Glenalbyn interior photo" loading="lazy"></figure>
+        <figure class="artifact square reveal"><img src="assets/photos/featured-05.jpg" alt="3761 Glenalbyn featured room" loading="lazy"></figure>
+        <figure class="artifact tall reveal"><img src="assets/photos/featured-09.jpg" alt="3761 Glenalbyn outdoor featured photo" loading="lazy"></figure>
+        <figure class="artifact wide reveal"><img src="assets/photos/featured-03.jpg" alt="3761 Glenalbyn kitchen and living photo" loading="lazy"></figure>
+        <figure class="artifact square reveal"><img src="assets/photos/featured-06.jpg" alt="3761 Glenalbyn bathroom photo" loading="lazy"></figure>
+        <figure class="artifact mid reveal"><img src="assets/photos/featured-07.jpg" alt="3761 Glenalbyn bedroom photo" loading="lazy"></figure>
+        <figure class="artifact square reveal"><img src="assets/photos/featured-10.jpg" alt="3761 Glenalbyn detail photo" loading="lazy"></figure>
+        <figure class="artifact wide reveal"><img src="assets/photos/featured-15.jpg" alt="3761 Glenalbyn wide featured photo" loading="lazy"></figure>
+        <figure class="artifact tall reveal"><img src="assets/photos/featured-16.jpg" alt="3761 Glenalbyn final featured photo" loading="lazy"></figure>
+      </div>
     </section>
-    
-    <footer>
-        <p>Listing data from CRMLS #SB26024676</p>
-        <p>Built instantly by <a href="https://textmarco.com">TextMarco</a></p>
-    </footer>
+
+    <section class="section highlights reveal">
+      <div>
+        <p class="kicker">Property Highlights</p>
+        <h2>Quiet drama, built in.</h2>
+      </div>
+      <ul class="feature-list">
+        <li>Fully reimagined Mount Washington hillside residence.</li>
+        <li>14-foot ceilings and a floor-to-ceiling wall of windows.</li>
+        <li>Expansive city views from foyer to living area.</li>
+        <li>Private hillside setting with serene surroundings.</li>
+        <li>Kitchen with leathered marble counters and mirrored island.</li>
+        <li>Built-in dining bench and top-of-the-line appliances.</li>
+        <li>Primary suite with terrazzo spa en suite and walk-in closet.</li>
+        <li>Two additional bedrooms with jacuzzi deck access.</li>
+        <li>2-car garage.</li>
+      </ul>
+    </section>
+
+    <section class="section floorplan reveal">
+      <div>
+        <p class="kicker">Plan</p>
+        <h2>Made for hillside living.</h2>
+        <p class="lead">A private Mount Washington layout with indoor-outdoor flow, separate bedroom zones, and deck access for the secondary bedrooms.</p>
+      </div>
+      <img src="floorplan.jpg" alt="3761 Glenalbyn floor plan" loading="lazy">
+    </section>
+
+    <section class="section bts">
+      <div class="gallery-head reveal">
+        <div>
+          <p class="kicker">Making Of</p>
+          <h2>Behind the scenes.</h2>
+        </div>
+        <p class="gallery-note">Campaign and listing-day images sit lower on the page, after buyers have seen the actual property.</p>
+      </div>
+      <div class="bts-grid">
+        <img class="reveal" src="assets/bts/bts-01.jpg" alt="Behind the scenes at 3761 Glenalbyn" loading="lazy">
+        <img class="reveal" src="assets/bts/bts-02.jpg" alt="Behind the scenes Glenalbyn image" loading="lazy">
+        <img class="reveal" src="assets/bts/bts-03.jpg" alt="Glenalbyn campaign image" loading="lazy">
+        <img class="reveal" src="assets/bts/bts-04.jpg" alt="Glenalbyn making-of image" loading="lazy">
+        <img class="reveal" src="assets/bts/bts-05.jpg" alt="Glenalbyn social content image" loading="lazy">
+        <img class="reveal" src="assets/bts/bts-06.jpg" alt="Glenalbyn behind the scenes photo" loading="lazy">
+        <img class="reveal" src="assets/bts/bts-07.jpg" alt="Glenalbyn agent content photo" loading="lazy">
+        <img class="reveal" src="assets/bts/bts-08.jpg" alt="Glenalbyn content shoot photo" loading="lazy">
+      </div>
+    </section>
+
+    <section class="section contact reveal" id="contact">
+      <div>
+        <p class="kicker">Private Showing</p>
+        <h2>Ask about Glenalbyn.</h2>
+        <p class="lead">Use the form, text, or call to ask a question, request showing details, or get the Redfin listing.</p>
+        <div class="agent">
+          <p><strong>Joshua Gibson</strong><br>DRE #02204427<br>West Shores Realty, Inc.</p>
+          <p><a href="tel:+13102951136">310-295-1136</a><br><a href="mailto:josh@jwgre.com">josh@jwgre.com</a></p>
+        </div>
+      </div>
+      <form id="contact-form">
+        <label>Name
+          <input name="name" autocomplete="name" required>
+        </label>
+        <label>Email
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label>Phone
+          <input name="phone" autocomplete="tel">
+        </label>
+        <label>Message
+          <textarea name="message" required>Hi Joshua, I am interested in 3761 Glenalbyn.</textarea>
+        </label>
+        <button class="button primary" type="submit">Send Inquiry</button>
+        <a class="button" href="https://www.redfin.com/CA/Los-Angeles/3761-Glenalbyn-Dr-90065/home/7070306" target="_blank" rel="noopener">View Redfin Listing</a>
+      </form>
+    </section>
+  </main>
+
+  <div class="sticky-cta" aria-label="Quick contact">
+    <a class="button" href="sms:+13102951136&body=Hi%20Joshua%2C%20I%27m%20interested%20in%203761%20Glenalbyn.">Text</a>
+    <a class="button" href="tel:+13102951136">Call</a>
+  </div>
+
+  <footer>
+    <span>Listing data from CRMLS #SB26024676</span>
+    <span>Built instantly by <a href="https://textmarco.com">TextMarco</a></span>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    document.getElementById("contact-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const body = [
+        "Inquiry for 3761 Glenalbyn",
+        "",
+        `Name: ${data.get("name")}`,
+        `Email: ${data.get("email")}`,
+        `Phone: ${data.get("phone") || ""}`,
+        "",
+        data.get("message")
+      ].join("\n");
+      window.location.href = `mailto:josh@jwgre.com?subject=${encodeURIComponent("3761 Glenalbyn inquiry")}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
 </body>
 </html>
